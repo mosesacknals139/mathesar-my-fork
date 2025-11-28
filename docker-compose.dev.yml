@@ -74,8 +74,9 @@ services:
       - POSTGRES_DB=mathesar_django
       - POSTGRES_USER=mathesar
       - POSTGRES_PASSWORD=mathesar
-      - POSTGRES_HOST=${POSTGRES_HOST-mathesar_dev_db} # replace mathesar_dev_db with /var/dev_postgres_socket for connecting to mathesar_dev_db via unix socket instead
+      - POSTGRES_HOST=/var/dev_postgres_socket
       - POSTGRES_PORT=5432
+
     volumes:
       - .:/code/
       - dev_postgres_socket:/var/dev_postgres_socket

@@ -9,7 +9,13 @@
 <div class="form-branding">
   <RichText text={$_('form_created_with_mathesar')} let:slotName>
     {#if slotName === 'mathesarLogo'}
-      <a {...$$restProps} href="https://mathesar.org" target="_blank">
+      <a
+        {...$$restProps}
+        href="https://mathesar.org"
+        target="_blank"
+        class="mathesar-link"
+      >
+
         <Logo />
         <MathesarName />
       </a>
@@ -21,12 +27,18 @@
   .form-branding {
     padding: var(--sm1);
     color: var(--color-fg-base-muted);
-    a {
-      text-decoration: none;
-      &:hover {
-        color: var(--color-fg-base);
-        border-bottom: solid 2px var(--color-brand);
-      }
-    }
+  }
+
+  .mathesar-link {
+    color: var(--base-text-color);
+    text-decoration: none;
+    display: inline-flex;
+    align-items: center;
+    gap: 0.25rem;
+  }
+
+  .mathesar-link:hover,
+  .mathesar-link:focus {
+    text-decoration: underline;
   }
 </style>
