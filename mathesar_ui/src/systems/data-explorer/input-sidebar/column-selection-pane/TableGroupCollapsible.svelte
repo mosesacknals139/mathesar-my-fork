@@ -12,14 +12,14 @@
 
   import type { ColumnWithLink } from '../../utils';
 
-  export let linkCollapsibleOpenState: Record<ColumnWithLink['id'], boolean> =
-    {};
+  export let linkCollapsibleOpenState: Record<string, boolean> = {};
   export let column: Pick<ColumnWithLink, 'id' | 'name'>;
   export let tableName: string;
+  export let collapsibleKey: string;
 </script>
 
 <div class="table-group">
-  <Collapsible bind:isOpen={linkCollapsibleOpenState[column.id]}>
+  <Collapsible bind:isOpen={linkCollapsibleOpenState[collapsibleKey]}>
     <!--
       A fragment is used here because sveltecheck does not seem to
       recognize toggle as a defined variable when directly using the
